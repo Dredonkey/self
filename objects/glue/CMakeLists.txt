@@ -6,7 +6,9 @@ set(SRC_glue
     termcap_glue.cpp
     termcap.primMaker.hh
     transcendental_glue.cpp
-    transcendental.primMaker.hh    
+    transcendental.primMaker.hh
+    glue1_glue.cpp
+    glue1.primMaker.hh
 )
 
 set(SRC_glue_x11

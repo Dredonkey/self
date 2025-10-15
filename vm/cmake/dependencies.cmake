@@ -57,3 +57,11 @@ list(APPEND 3RD_PARTY_LIBS ${CURSES_LIBRARIES})
 if(CMAKE_DL_LIBS)
   list(APPEND 3RD_PARTY_LIBS ${CMAKE_DL_LIBS})
 endif()
+
+# link SDL3 for glue1
+if(PKG_CONFIG_FOUND)
+  pkg_check_modules(SDL3 sdl3)
+  link_directories(${SDL3_LIBRARY_DIRS})
+  include_directories(${SDL3_INCLUDE_DIRS})
+  list(APPEND 3RD_PARTY_LIBS ${SDL3_LIBRARIES})
+endif()

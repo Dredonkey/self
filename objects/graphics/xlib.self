@@ -3419,7 +3419,8 @@ to empty.
          'Category: clipboard\x7fModuleInfo: Module: xlib InitialContents: FollowSlot'
         
          fetchFromClipboard = ( |
-            | xFetchBytes).
+            | 
+            fetchFromClipboardIfFail: [|:e| error: e]).
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'traits' -> 'xlib' -> 'display' -> () From: ( | {
@@ -3427,7 +3428,7 @@ to empty.
         
          fetchFromClipboardIfFail: fb = ( |
             | 
-            xFetchBytesIfFail: fb).
+            os outputOfCommand: 'xsel -bo -t 600' IfFail: [|:e| fb value: e]).
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'traits' -> 'xlib' -> 'display' -> () From: ( | {
@@ -3689,7 +3690,8 @@ to empty.
          'Category: clipboard\x7fModuleInfo: Module: xlib InitialContents: FollowSlot'
         
          storeToClipboard: aString = ( |
-            | xStoreBytes: aString).
+            | 
+            storeToClipboard: aString IfFail: [|:e| error: e]).
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'traits' -> 'xlib' -> 'display' -> () From: ( | {
@@ -3697,7 +3699,7 @@ to empty.
         
          storeToClipboard: aString IfFail: fb = ( |
             | 
-            xStoreBytes: aString IfFail: fb).
+            glue1 setClipboard: aString).
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'traits' -> 'xlib' -> 'display' -> () From: ( | {

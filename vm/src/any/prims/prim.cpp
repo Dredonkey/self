@@ -28,6 +28,9 @@
   # if defined(XLIB) && defined(xlib_entries)
           xlib_glue
   # endif
+  # ifdef glue1_entries
+          glue1_glue
+  # endif
 # undef WHAT_GLUE
 
   
@@ -2410,6 +2413,10 @@ transcendental_entries
 
 # if defined(XLIB) && defined(xlib_entries)
 xlib_entries
+#endif
+
+#ifdef glue1_entries
+glue1_entries
 #endif
 
 LARGE_INT_PRIM_TABLE_ENTRIES

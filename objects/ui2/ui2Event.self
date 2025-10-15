@@ -859,7 +859,8 @@ too hard to do selection extension.
          'Category: stateQueries\x7fModuleInfo: Module: ui2Event InitialContents: FollowSlot\x7fVisibility: public'
         
          metaIsDown = ( |
-            | 0 != (state && metaMask)).
+            | 
+            (0 != (state && metaMask)) || [0 != (state && altMask)]).
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'traits' -> 'abstractUI2Event' -> () From: ( | {
